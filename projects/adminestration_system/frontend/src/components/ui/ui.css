@@ -1,0 +1,118 @@
+@reference "tailwindcss";
+
+.ui-sr-only {
+  @apply absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0;
+  clip: rect(0, 0, 0, 0);
+}
+
+.ui-brand {
+  @apply inline-flex items-center gap-2.5 text-sm font-semibold tracking-[-0.025em] text-zinc-950;
+
+  .ui-brand__mark {
+    --ui-brand-cutout: #09090b;
+    @apply grid size-7 shrink-0 place-items-center rounded-[7px] bg-zinc-950 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.14)];
+
+    svg {
+      @apply size-[17px];
+    }
+  }
+}
+
+.ui-icon {
+  @apply block size-4 shrink-0;
+}
+
+.ui-button {
+  @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-md border px-3 font-medium tracking-[-0.01em] transition-[background-color,border-color,color,box-shadow,transform] duration-150 select-none;
+
+  &:focus-visible {
+    @apply outline-none ring-2 ring-zinc-950 ring-offset-2 ring-offset-white;
+  }
+
+  &:active:not(:disabled) {
+    @apply translate-y-px;
+  }
+
+  &:disabled {
+    @apply pointer-events-none cursor-not-allowed opacity-45;
+  }
+}
+
+.ui-button--primary {
+  @apply border-zinc-950 bg-zinc-950 text-white shadow-[0_1px_2px_rgba(0,0,0,0.16)];
+
+  &:hover:not(:disabled) {
+    @apply border-zinc-800 bg-zinc-800;
+  }
+}
+
+.ui-button--secondary {
+  @apply border-zinc-200 bg-white text-zinc-950 shadow-[0_1px_2px_rgba(0,0,0,0.05)];
+
+  &:hover:not(:disabled) {
+    @apply border-zinc-300 bg-zinc-50;
+  }
+}
+
+.ui-button--ghost {
+  @apply border-transparent bg-transparent text-zinc-600 shadow-none;
+
+  &:hover:not(:disabled) {
+    @apply bg-zinc-100 text-zinc-950;
+  }
+}
+
+.ui-button--sm {
+  @apply h-8 text-xs;
+}
+
+.ui-button--md {
+  @apply h-10 text-sm;
+}
+
+.ui-button--icon {
+  @apply size-9 p-0 text-sm;
+}
+
+.ui-status {
+  @apply inline-flex h-6 items-center gap-1.5 rounded-full border px-2 text-xs font-medium;
+
+  &::before {
+    content: '';
+    @apply size-1.5 rounded-full bg-current opacity-70;
+  }
+}
+
+.ui-status--success {
+  @apply border-emerald-200 bg-emerald-50 text-emerald-700;
+}
+
+.ui-status--warning {
+  @apply border-amber-200 bg-amber-50 text-amber-700;
+}
+
+.ui-status--neutral {
+  @apply border-zinc-200 bg-zinc-50 text-zinc-600;
+}
+
+.ui-status--info {
+  @apply border-blue-200 bg-blue-50 text-blue-700;
+}
+
+.ui-avatar {
+  @apply inline-flex shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-zinc-100 font-semibold tracking-[-0.02em] text-zinc-700 ring-2 ring-white select-none;
+}
+
+.ui-avatar--sm {
+  @apply size-7 text-[10px];
+}
+
+.ui-avatar--md {
+  @apply size-9 text-xs;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-button {
+    @apply transition-none;
+  }
+}
