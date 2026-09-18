@@ -1,3 +1,14 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://backend-production-0686.up.railway.app/api/:path*"
+    },
+    {
+      "source": "/verify/:path*",
+      "destination": "https://backend-production-0686.up.railway.app/verify/:path*"
+    },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }

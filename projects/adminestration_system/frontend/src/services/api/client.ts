@@ -1,6 +1,6 @@
 import { clearSession, requireAccessToken } from './session'
 
-const DEFAULT_API_BASE_URL = 'http://127.0.0.1:3100'
+const DEFAULT_API_BASE_URL = import.meta.env.DEV ? 'http://127.0.0.1:3100' : ''
 
 export const API_BASE_URL = (
   import.meta.env.VITE_API_BASE_URL || DEFAULT_API_BASE_URL
@@ -43,7 +43,8 @@ export async function apiRequest(path: string, init?: RequestInit) {
   try {
     return await fetch(resolveApiUrl(path), init)
   } catch {
-    throw new ApiError(`Не удалось подключиться к сервису по адресу ${API_BASE_URL}.`, 0)
+    const serviceAddress = API_BASE_URL || 'текущего домена'
+    throw new ApiError(`Не удалось подключиться к сервису по адресу ${serviceAddress}.`, 0)
   }
 }
 
