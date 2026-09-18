@@ -1,7 +1,8 @@
 @reference "tailwindcss";
 
 @keyframes auth-rotate {
-  to { transform: rotate(360deg); }
+  from { transform: rotate(0deg) scale(var(--blob-scale)); }
+  to { transform: rotate(360deg) scale(var(--blob-scale)); }
 }
 
 .auth-shell {
@@ -57,11 +58,16 @@
   @apply pointer-events-none absolute inset-0 h-full w-full opacity-75;
   filter: saturate(0.85) contrast(1.1);
 
-  .auth-blob__shape { transform-box: fill-box; }
-  .auth-blob__shape--outer-top { animation: auth-rotate 20s linear infinite; transform-origin: 13px 25px; }
-  .auth-blob__shape--inner-top { animation: auth-rotate 10s linear infinite; transform-origin: 13px 25px; }
-  .auth-blob__shape--outer-bottom { animation: auth-rotate 25s linear infinite; transform-origin: 84px 93px; }
-  .auth-blob__shape--inner-bottom { animation: auth-rotate 15s linear infinite; transform-origin: 84px 93px; }
+  .auth-blob__shape {
+    --blob-scale: 0.9;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .auth-blob__shape--outer-top { --blob-scale: 0.76; animation: auth-rotate 20s linear infinite; }
+  .auth-blob__shape--inner-top { --blob-scale: 0.86; animation: auth-rotate 10s linear infinite; }
+  .auth-blob__shape--outer-bottom { --blob-scale: 0.76; animation: auth-rotate 25s linear infinite; }
+  .auth-blob__shape--inner-bottom { --blob-scale: 0.86; animation: auth-rotate 15s linear infinite; }
 }
 
 .auth-signal {

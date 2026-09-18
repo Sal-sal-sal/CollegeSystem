@@ -2,8 +2,8 @@ export function AuthBlob() {
   return (
     <svg
       className="auth-blob"
-      preserveAspectRatio="xMidYMid slice"
-      viewBox="10 10 80 80"
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="-36 -24 168 160"
       aria-hidden="true"
     >
       <path

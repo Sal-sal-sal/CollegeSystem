@@ -1,0 +1,71 @@
+@reference "tailwindcss";
+
+.documents-page {
+  @apply min-h-screen bg-[#fafafa] text-zinc-950 antialiased;
+  font-family: Geist, "SF Pro Text", "Segoe UI", sans-serif;
+}
+
+.documents-main { @apply mx-auto w-full max-w-3xl px-4 py-10 sm:px-8 sm:py-14; }
+.documents-back { @apply inline-flex items-center gap-2 text-xs font-medium text-zinc-500 no-underline hover:text-zinc-950; }
+.documents-back svg { @apply size-3.5; }
+.documents-identity { @apply mt-9 text-center; }
+.documents-identity h1 { @apply mb-2 mt-3 text-3xl font-semibold tracking-[-0.05em] sm:text-4xl; }
+.documents-identity > p { @apply text-sm text-zinc-500; }
+.documents-page-state { @apply mt-6 text-center text-xs text-zinc-500; }
+.documents-page-state--error { @apply text-red-700; }
+.documents-list, .documents-upload { @apply mt-9 overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.03)]; }
+.documents-list > header, .documents-upload > header { @apply border-b border-zinc-200 px-5 py-4; }
+.documents-list h2, .documents-upload h2 { @apply text-sm font-semibold; }
+.documents-list header p, .documents-upload header p { @apply mt-1 text-[11px] text-zinc-500; }
+.documents-upload-kicker { @apply mb-2 inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-400; }
+.documents-upload-kicker svg { @apply size-3.5 text-zinc-950; }
+.documents-item { @apply flex items-center gap-3 border-b border-zinc-100 px-5 py-4 last:border-b-0; }
+.documents-file-icon { @apply grid size-9 shrink-0 place-items-center rounded-lg border border-zinc-200 bg-zinc-50 text-zinc-600; }
+.documents-item > div { @apply min-w-0 flex-1; }
+.documents-item h3 { @apply truncate text-xs font-medium; }
+.documents-item p { @apply mt-1 truncate text-[10px] text-zinc-400; }
+.documents-item nav { @apply mt-2 flex gap-3; }
+.documents-item nav a, .documents-item nav button { @apply border-0 bg-transparent p-0 text-[10px] font-medium text-zinc-700 underline decoration-zinc-300 underline-offset-2 hover:text-zinc-950; }
+.documents-item nav button { @apply text-red-700 decoration-red-200; }
+.documents-state { @apply px-5 py-8 text-center text-xs text-zinc-500; }
+.documents-state--error { @apply text-red-700; }
+.documents-state--error button { @apply mt-2 text-xs font-medium underline underline-offset-2; }
+.documents-upload form { @apply grid gap-4 p-5 sm:grid-cols-2; }
+.documents-upload label span, .documents-revoke-form label span { @apply mb-2 block text-xs font-medium text-zinc-700; }
+.documents-upload input[name="title"] { @apply h-10 w-full rounded-md border border-zinc-200 bg-white px-3 text-xs outline-none transition focus:border-zinc-950 focus:ring-2 focus:ring-zinc-950/10; }
+.documents-upload-zone { @apply relative col-span-full flex min-h-44 cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-dashed border-zinc-300 bg-[linear-gradient(135deg,#fafafa,#f4f4f5)] px-5 py-6 text-center outline-none transition; }
+.documents-upload-zone:hover, .documents-upload-zone:focus-visible { @apply border-zinc-950 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.06)]; }
+.documents-upload-zone--active { @apply scale-[1.01] border-zinc-950 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)]; }
+.documents-upload-file-input { @apply sr-only; }
+.documents-upload-empty { @apply flex flex-col items-center gap-1.5; }
+.documents-upload-empty strong { @apply mt-1 text-sm font-semibold text-zinc-900; }
+.documents-upload-empty > span:not(.documents-upload-icon) { @apply text-[11px] text-zinc-500; }
+.documents-upload-empty small { @apply mt-1 text-[10px] text-zinc-400; }
+.documents-upload-icon { @apply grid size-12 place-items-center rounded-2xl border border-zinc-200 bg-white text-zinc-900 shadow-[0_4px_12px_rgba(0,0,0,0.06)]; }
+.documents-upload-icon svg { @apply size-5; }
+.documents-upload-selected { @apply flex w-full items-center gap-3 rounded-lg bg-white p-2 text-left shadow-[0_4px_16px_rgba(0,0,0,0.07)]; }
+.documents-upload-selected img { @apply size-16 shrink-0 rounded-md object-cover; }
+.documents-upload-selected-copy { @apply flex min-w-0 flex-1 flex-col gap-1; }
+.documents-upload-selected-copy strong { @apply truncate text-xs font-semibold text-zinc-900; }
+.documents-upload-selected-copy > span { @apply text-[10px] text-zinc-500; }
+.documents-upload-selected .ui-button { @apply shrink-0; }
+.documents-upload-actions { @apply flex items-center justify-between gap-3 sm:col-span-2; }
+.documents-upload-actions p { @apply text-xs text-zinc-500; }
+.documents-upload-message--success { @apply text-emerald-700; }
+.documents-footnote { @apply mt-5 text-center text-[10px] text-zinc-400; }
+.documents-revoke-form { @apply p-5; }
+.documents-revoke-form > p { @apply text-sm leading-6 text-zinc-600; }
+.documents-revoke-form label { @apply mt-4 block; }
+.documents-revoke-form textarea { @apply min-h-28 w-full resize-y rounded-md border border-zinc-200 p-3 text-sm outline-none focus:border-zinc-950 focus:ring-2 focus:ring-zinc-950/10; }
+
+@media (max-width: 560px) {
+  .documents-item { @apply items-start; }
+  .documents-item > .ui-status { @apply hidden; }
+  .documents-upload-actions { @apply flex-col items-stretch; }
+  .documents-upload-selected { @apply items-start; }
+  .documents-upload-selected .ui-button { @apply mt-1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .documents-page * { @apply transition-none; }
+}

@@ -61,3 +61,11 @@ a {
 #root {
   min-height: 100vh;
 }
+
+.app-loading {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  color: #71717a;
+  font-size: 13px;
+}

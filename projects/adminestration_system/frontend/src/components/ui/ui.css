@@ -15,6 +15,10 @@
     svg {
       @apply size-[17px];
     }
+
+    img {
+      @apply size-full rounded-[inherit] object-cover;
+    }
   }
 }
 
@@ -23,7 +27,7 @@
 }
 
 .ui-button {
-  @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-md border px-3 font-medium tracking-[-0.01em] transition-[background-color,border-color,color,box-shadow,transform] duration-150 select-none;
+  @apply inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md border px-3 font-medium tracking-[-0.01em] transition-[background-color,border-color,color,box-shadow,transform] duration-150 select-none;
 
   &:focus-visible {
     @apply outline-none ring-2 ring-zinc-950 ring-offset-2 ring-offset-white;
@@ -99,8 +103,24 @@
   @apply border-blue-200 bg-blue-50 text-blue-700;
 }
 
+.ui-status--danger {
+  @apply border-red-200 bg-red-50 text-red-700;
+}
+
+.ui-button--danger {
+  @apply border-red-700 bg-red-700 text-white shadow-[0_1px_2px_rgba(0,0,0,0.16)];
+
+  &:hover:not(:disabled) {
+    @apply border-red-600 bg-red-600;
+  }
+}
+
 .ui-avatar {
-  @apply inline-flex shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-zinc-100 font-semibold tracking-[-0.02em] text-zinc-700 ring-2 ring-white select-none;
+  @apply inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-zinc-200 bg-zinc-100 font-semibold tracking-[-0.02em] text-zinc-700 ring-2 ring-white select-none;
+
+  img {
+    @apply size-full object-cover;
+  }
 }
 
 .ui-avatar--sm {

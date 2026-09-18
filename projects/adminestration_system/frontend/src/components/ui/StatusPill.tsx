@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react'
 
-type StatusTone = 'success' | 'warning' | 'neutral' | 'info'
+type StatusTone = 'success' | 'warning' | 'neutral' | 'info' | 'danger'
 
 interface StatusPillProps extends HTMLAttributes<HTMLSpanElement> {
   tone?: StatusTone

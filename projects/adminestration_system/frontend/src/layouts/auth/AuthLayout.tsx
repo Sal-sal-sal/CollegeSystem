@@ -7,28 +7,28 @@ import './auth-layout.css'
 export function AuthLayout() {
   return (
     <main className="auth-shell">
-      <section className="auth-stage" aria-label="Administration platform">
+      <section className="auth-stage" aria-label="Административная платформа">
         <AuthBlob />
         <div className="auth-stage__grid" aria-hidden="true" />
         <div className="auth-stage__content">
-          <BrandMark label="Admin OS" />
+          <BrandMark label="Панель администратора" />
           <div className="auth-stage__message">
-            <p>CONTROL PLANE / 01</p>
-            <h1>One place to run your entire operation.</h1>
-            <span>People, access, reports and system health stay in one precise view.</span>
+            <p>ЦЕНТР УПРАВЛЕНИЯ / 01</p>
+            <h1>Одно место для управления всей системой.</h1>
+            <span>Пользователи, доступ, отчёты и состояние системы собраны в одном точном представлении.</span>
           </div>
           <AuthSignal />
         </div>
       </section>
       <section className="auth-panel">
         <div className="auth-panel__meta">
-          <span>ADMINISTRATION SYSTEM</span>
-          <span>SECURE ACCESS</span>
+          <span>АДМИНИСТРАТИВНАЯ СИСТЕМА</span>
+          <span>ЗАЩИЩЁННЫЙ ДОСТУП</span>
         </div>
         <div className="auth-panel__content">
           <Outlet />
         </div>
-        <p className="auth-panel__footer">Protected by encrypted session controls.</p>
+        <p className="auth-panel__footer">Защищено шифрованием и контролем сессий.</p>
       </section>
     </main>
   )

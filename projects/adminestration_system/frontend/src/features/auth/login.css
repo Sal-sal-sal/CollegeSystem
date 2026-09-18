@@ -77,8 +77,16 @@
     }
   }
 
+  .login-form__error {
+    @apply rounded-md border border-red-200 bg-red-50 px-3 py-2.5 text-xs leading-5 text-red-700;
+  }
+
   > button[type='submit'] {
     @apply mt-1 w-full justify-center gap-2;
+  }
+
+  > button[type='submit']:disabled {
+    @apply cursor-wait opacity-60;
   }
 }
 

@@ -6,18 +6,18 @@ export function LoginPage() {
   return (
     <section className="login-page" aria-labelledby="login-title">
       <header className="login-page__header">
-        <BrandMark label="Admin OS" />
+        <BrandMark label="Панель администратора" />
         <div className="login-page__intro">
-          <p className="login-page__eyebrow">Workspace access</p>
-          <h1 id="login-title">Welcome back</h1>
-          <p>Sign in to continue to your administration workspace.</p>
+          <p className="login-page__eyebrow">Доступ к рабочему пространству</p>
+          <h1 id="login-title">С возвращением</h1>
+          <p>Войдите, чтобы продолжить работу в панели администратора.</p>
         </div>
       </header>
 
       <LoginForm />
 
       <p className="login-page__footer">
-        Need access? Contact your workspace administrator.
+        Нужен доступ? Обратитесь к администратору рабочего пространства.
       </p>
     </section>
   )

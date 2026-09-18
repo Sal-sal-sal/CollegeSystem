@@ -1,6 +1,8 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { LoginPage } from './features/auth/LoginPage'
-import DashboardPage from './features/dashboard/DashboardPage'
+import { RequireSession } from './features/auth/RequireSession'
+import { StudentDocumentsPage } from './features/students/StudentDocumentsPage'
+import { StudentsPage } from './features/students/StudentsPage'
 import { AuthLayout } from './layouts/auth/AuthLayout'
 
 function App() {
@@ -10,7 +12,11 @@ function App() {
       <Route path="/auth" element={<AuthLayout />}>
         <Route path="login" element={<LoginPage />} />
       </Route>
-      <Route path="/dashboard" element={<DashboardPage />} />
+      <Route element={<RequireSession />}>
+        <Route path="/dashboard" element={<StudentsPage />} />
+        <Route path="/students" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/students/:studentId/documents" element={<StudentDocumentsPage />} />
+      </Route>
       <Route path="*" element={<Navigate to="/auth/login" replace />} />
     </Routes>
   )

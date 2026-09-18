@@ -6,9 +6,10 @@ interface AvatarProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'children'> 
   initials: string
   size?: AvatarSize
   label?: string
+  src?: string
 }
 
-export function Avatar({ initials, size = 'md', label, className = '', ...props }: AvatarProps) {
+export function Avatar({ initials, size = 'md', label, src, className = '', ...props }: AvatarProps) {
   const accessibleProps = label
     ? { role: 'img', 'aria-label': label }
     : { 'aria-hidden': true }
@@ -19,7 +20,7 @@ export function Avatar({ initials, size = 'md', label, className = '', ...props 
       {...accessibleProps}
       {...props}
     >
-      {initials.slice(0, 2).toUpperCase()}
+      {src ? <img src={src} alt="" /> : initials.slice(0, 2).toUpperCase()}
     </span>
   )
 }
